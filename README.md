@@ -10,6 +10,11 @@ celestial bodies.
 The ambient light can be configured via the config file and should be
 self explanatory.
 
+### Links
+
+Forum Thread: http://forum.kerbalspaceprogram.com/threads/133287
+Download on Kerbalstuff: https://kerbalstuff.com/mod/1136/Trackingstation%20Ambientlight
+
 ### License
 
 Copyright 2015 by Mhoram Kerbin

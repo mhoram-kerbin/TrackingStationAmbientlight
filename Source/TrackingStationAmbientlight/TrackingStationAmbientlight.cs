@@ -28,7 +28,8 @@ namespace TrackingStationAmbientlight
     [KSPAddon(KSPAddon.Startup.TrackingStation, false)]
     public class TrackingStationAmbientlight : MonoBehaviour
     {
-
+        private static bool hasRun = false;
+        private static bool makeInactive = false;
         private class TsaConfig
         {
             public bool active { get; set; }
@@ -37,23 +38,40 @@ namespace TrackingStationAmbientlight
             public float blue { get; set; }
         }
 
+        private static TsaConfig color;
         public void Start()
         {
             try
             {
-                var cfg = GameDatabase.Instance.GetConfigNodes("TRACKING_STATION_AMBIENTLIGHT_CONFIG").FirstOrDefault();
-                if (cfg != null)
-                {
-                    TsaConfig color = ResourceUtilities.LoadNodeProperties<TsaConfig>(cfg);
-                    if (color.active)
+                if (makeInactive) {
+                    return;
+                }
+                if (!hasRun) {
+                    hasRun = true;
+                    if (AssemblyLoader.loadedAssemblies.ToList().Exists(lA => lA.dllName == "AmbientLightAdjustment"))
                     {
-                        RenderSettings.ambientLight = new Color(color.red / 256f, color.green / 256f, color.blue / 256f);
+                        var txt = "Disabling TrackingStationAmbientlight, since AmbientLightAdjustment is installed";
+                        print (txt);
+                        ScreenMessages.PostScreenMessage(txt, 5, ScreenMessageStyle.UPPER_RIGHT);
+                        makeInactive = true;
+                        return;
+                    }
+                    var cfg = GameDatabase.Instance.GetConfigNodes("TRACKING_STATION_AMBIENTLIGHT_CONFIG").FirstOrDefault();
+                    if (cfg != null)
+                    {
+                        color = ResourceUtilities.LoadNodeProperties<TsaConfig>(cfg);
+
                     }
                 }
+
+                if (color != null && color.active)
+                {
+                    RenderSettings.ambientLight = new Color(color.red / 256f, color.green / 256f, color.blue / 256f);
+                }
             }
-            catch (System.ArgumentNullException x)
+            catch (System.Exception x)
             {
-                print("ArgumentNullException in TrackingStationAmbientlight: " + x.ToString());
+                print("Exception in TrackingStationAmbientlight: " + x.ToString());
             }
         }
     }

@@ -38,40 +38,58 @@ namespace TrackingStationAmbientlight
             public float blue { get; set; }
         }
 
-        private static TsaConfig color;
+        private static Color color;
         public void Start()
         {
+            if (makeInactive)
+            {
+                return;
+            }
             try
             {
-                if (makeInactive) {
-                    return;
-                }
                 if (!hasRun) {
                     hasRun = true;
                     if (AssemblyLoader.loadedAssemblies.ToList().Exists(lA => lA.dllName == "AmbientLightAdjustment"))
                     {
-                        var txt = "Disabling TrackingStationAmbientlight, since AmbientLightAdjustment is installed";
-                        print (txt);
-                        ScreenMessages.PostScreenMessage(txt, 5, ScreenMessageStyle.UPPER_RIGHT);
+                        mes("Disabling TrackingStationAmbientlight, since AmbientLightAdjustment is installed");
                         makeInactive = true;
                         return;
                     }
                     var cfg = GameDatabase.Instance.GetConfigNodes("TRACKING_STATION_AMBIENTLIGHT_CONFIG").FirstOrDefault();
-                    if (cfg != null)
+                    if (cfg == null)
                     {
-                        color = ResourceUtilities.LoadNodeProperties<TsaConfig>(cfg);
-
+                        mes("TrackingStationAmbientlight: Could not load Confignode");
+                        makeInactive = true;
+                        return;
                     }
+                    TsaConfig tsaColor = ResourceUtilities.LoadNodeProperties<TsaConfig>(cfg);
+                    if (tsaColor == null) {
+                        mes("TrackingStationAmbientlight: Could not get Confignode properties");
+                        makeInactive = true;
+                        return;
+                    }
+                    if(!tsaColor.active)
+                    {
+                        mes("TrackingStationAmbientlight: Deactivating based on configuration", false);
+                        makeInactive = true;
+                        return;
+                    }
+                    color = new Color(tsaColor.red / 256f, tsaColor.green / 256f, tsaColor.blue / 256f);
                 }
 
-                if (color != null && color.active)
-                {
-                    RenderSettings.ambientLight = new Color(color.red / 256f, color.green / 256f, color.blue / 256f);
-                }
+                RenderSettings.ambientLight = color;
             }
             catch (System.Exception x)
             {
-                print("Exception in TrackingStationAmbientlight: " + x.ToString());
+                Debug.LogError("Exception in TrackingStationAmbientlight: " + x.ToString());
+            }
+        }
+        private void mes(string txt, bool screen = true)
+        {
+            Debug.Log(txt);
+            if (screen)
+            {
+                ScreenMessages.PostScreenMessage(txt, 5, ScreenMessageStyle.UPPER_RIGHT);
             }
         }
     }

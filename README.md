@@ -14,6 +14,7 @@ self explanatory.
 
 Forum Thread: http://forum.kerbalspaceprogram.com/threads/133287
 Download on Kerbalstuff: https://kerbalstuff.com/mod/1136/Trackingstation%20Ambientlight
+Changelog: https://github.com/mhoram-kerbin/TrackingStationAmbientlight/blob/master/changelog.txt
 
 ### License
 

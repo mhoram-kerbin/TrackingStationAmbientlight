@@ -11,3 +11,6 @@ Version 0.2.0
 Version 0.2.1
 - Test Configfile only once during runtime
 - Update for KSP V 1.0.5
+
+Version 0.3.1
+- Update for KSP V 1.1.3

@@ -12,13 +12,13 @@ self explanatory.
 
 ### Links
 
-Forum Thread: http://forum.kerbalspaceprogram.com/threads/133287
-Download on Kerbalstuff: https://kerbalstuff.com/mod/1136/Trackingstation%20Ambientlight
+Forum Thread: http://forum.kerbalspaceprogram.com/index.php?/topic/119999-1
+Download on Spacedock: http://spacedock.info/mod/895/Trackingstation%20Ambientlight
 Changelog: https://github.com/mhoram-kerbin/TrackingStationAmbientlight/blob/master/changelog.txt
 
 ### License
 
-Copyright 2015 by Mhoram Kerbin
+Copyright 2015-2016 by Mhoram Kerbin
 
 TrackingStationAmbientlight is free software: you can redistribute it
 and/or modify it under the terms of the GNU General Public License as

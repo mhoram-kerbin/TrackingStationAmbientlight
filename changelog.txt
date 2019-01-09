@@ -17,3 +17,6 @@ Version 0.3.1
 
 Version 0.3.2
 - Corrected Metadata
+
+Version 0.3.3
+- Corrected Metadata

@@ -2,7 +2,7 @@
     TrackingStationAmbientlight is an addon to KSP that allows easy
     configuration of the Ambientlight in the tracking station
  
-    Copyright 2015-2016 by Mhoram Kerbin
+    Copyright 2015-2021 by Mhoram Kerbin
  
     TrackingStationAmbientlight is free software: you can redistribute it
     and/or modify it under the terms of the GNU General Public License as
@@ -55,7 +55,7 @@ namespace TrackingStationAmbientlight
                         makeInactive = true;
                         return;
                     }
-                    var cfg = ConfigNode.Load("GameData/TrackingStationAmbientlight/TrackingStationAmbientlight.cfg").GetNode("TRACKING_STATION_AMBIENTLIGHT_CONFIG");
+                    var cfg = ConfigNode.Load(KSPUtil.ApplicationRootPath + "GameData/TrackingStationAmbientlight/TrackingStationAmbientlight.cfg").GetNode("TRACKING_STATION_AMBIENTLIGHT_CONFIG");
                     if (cfg == null)
                     {
                         mes("TrackingStationAmbientlight: Could not load Confignode");

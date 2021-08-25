@@ -20,3 +20,6 @@ Version 0.3.2
 
 Version 0.3.3
 - Corrected Metadata
+
+Version 0.3.4
+- Update for KSP V 1.12.2

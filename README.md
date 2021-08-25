@@ -18,7 +18,7 @@ self explanatory.
 
 ### License
 
-Copyright 2015-2016 by Mhoram Kerbin
+Copyright 2015-2021 by Mhoram Kerbin
 
 TrackingStationAmbientlight is free software: you can redistribute it
 and/or modify it under the terms of the GNU General Public License as

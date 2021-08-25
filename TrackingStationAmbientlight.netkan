@@ -1,6 +1,7 @@
 {
-    "spec_version" : 1,
+    "spec_version" : "v1.27",
     "identifier"   : "TrackingStationAmbientlight",
+    "license"      : "GPL-3.0",
     "$kref"        : "#/ckan/spacedock/895",
     "$vref" : "#/ckan/ksp-avc",
     "x_netkan_license_ok": true,
@@ -11,6 +12,12 @@
         }
     ],
     "resources" : {
-        "bugtracker" : "https://github.com/mhoram-kerbin/TrackingStationAmbientlight/issues"
+        "bugtracker" : "https://github.com/mhoram-kerbin/TrackingStationAmbientlight/issues",
+        "homepage" : "https://forum.kerbalspaceprogram.com/index.php?/topic/119999-1"
     },
+    "tags": [
+        "plugin",
+        "convenience",
+        "graphics"
+    ]
 }

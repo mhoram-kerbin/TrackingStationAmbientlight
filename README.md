@@ -12,8 +12,8 @@ self explanatory.
 
 ### Links
 
-* Forum Thread: http://forum.kerbalspaceprogram.com/index.php?/topic/119999-1
-* Download on Spacedock: http://spacedock.info/mod/895/Trackingstation%20Ambientlight
+* Forum Thread: https://forum.kerbalspaceprogram.com/index.php?/topic/119999-1
+* Download on Spacedock: https://spacedock.info/mod/895/Trackingstation%20Ambientlight
 * Changelog: https://github.com/mhoram-kerbin/TrackingStationAmbientlight/blob/master/changelog.txt
 
 ### License
